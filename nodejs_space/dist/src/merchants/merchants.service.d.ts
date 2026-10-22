@@ -1,0 +1,130 @@
+import { PrismaService } from '../prisma/prisma.service';
+import { MerchantSetupDto, MerchantUpdateDto } from './dto/merchant.dto';
+export declare class MerchantsService {
+    private prisma;
+    constructor(prisma: PrismaService);
+    getLogoUrl(merchant: {
+        logoFileId: string | null;
+        logoFile?: {
+            cloud_storage_path: string;
+            contentType: string;
+            isPublic: boolean;
+        } | null;
+    }): Promise<string | null>;
+    getRatingStats(merchantId: string): Promise<{
+        averageRating: number;
+        ratingCount: number;
+    }>;
+    setup(userId: string, dto: MerchantSetupDto): Promise<{
+        id: string;
+        userId: string;
+        shopName: string | null;
+        tradeType: string | null;
+        governorateId: string | null;
+        governorateName: string | null;
+        governorateNameAr: string | null;
+        governorateNameFr: string | null;
+        delegationId: string | null;
+        delegationName: string | null;
+        delegationNameAr: string | null;
+        delegationNameFr: string | null;
+        phone: string | null;
+        logoFileId: string | null;
+        logoUrl: string | null;
+        averageRating: number;
+        ratingCount: number;
+        setupComplete: boolean;
+        createdAt: string;
+    }>;
+    updateMe(userId: string, dto: MerchantUpdateDto): Promise<{
+        id: string;
+        userId: string;
+        shopName: string | null;
+        tradeType: string | null;
+        governorateId: string | null;
+        governorateName: string | null;
+        governorateNameAr: string | null;
+        governorateNameFr: string | null;
+        delegationId: string | null;
+        delegationName: string | null;
+        delegationNameAr: string | null;
+        delegationNameFr: string | null;
+        phone: string | null;
+        logoFileId: string | null;
+        logoUrl: string | null;
+        averageRating: number;
+        ratingCount: number;
+        setupComplete: boolean;
+        createdAt: string;
+    }>;
+    findMe(userId: string): Promise<{
+        id: string;
+        userId: string;
+        shopName: string | null;
+        tradeType: string | null;
+        governorateId: string | null;
+        governorateName: string | null;
+        governorateNameAr: string | null;
+        governorateNameFr: string | null;
+        delegationId: string | null;
+        delegationName: string | null;
+        delegationNameAr: string | null;
+        delegationNameFr: string | null;
+        phone: string | null;
+        logoFileId: string | null;
+        logoUrl: string | null;
+        averageRating: number;
+        ratingCount: number;
+        setupComplete: boolean;
+        createdAt: string;
+    }>;
+    findOne(id: string): Promise<{
+        id: string;
+        userId: string;
+        shopName: string | null;
+        tradeType: string | null;
+        governorateId: string | null;
+        governorateName: string | null;
+        governorateNameAr: string | null;
+        governorateNameFr: string | null;
+        delegationId: string | null;
+        delegationName: string | null;
+        delegationNameAr: string | null;
+        delegationNameFr: string | null;
+        phone: string | null;
+        logoFileId: string | null;
+        logoUrl: string | null;
+        averageRating: number;
+        ratingCount: number;
+        setupComplete: boolean;
+        createdAt: string;
+    }>;
+    findAll(query: {
+        governorateId?: string;
+        delegationId?: string;
+        tradeType?: string;
+        search?: string;
+        page?: number;
+        limit?: number;
+    }): Promise<{
+        items: {
+            id: string;
+            userId: string;
+            shopName: string | null;
+            tradeType: string | null;
+            governorateName: string | null;
+            governorateNameAr: string | null;
+            governorateNameFr: string | null;
+            delegationName: string | null;
+            delegationNameAr: string | null;
+            delegationNameFr: string | null;
+            logoFileId: string | null;
+            logoUrl: string | null;
+            averageRating: number;
+            ratingCount: number;
+        }[];
+        total: number;
+        page: number;
+        totalPages: number;
+    }>;
+}
